@@ -1,0 +1,325 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WiggleByte Comming Soon</title>
+    <meta name="description" content="Game Changing Cyber Security Product for SMBs is Coming Soon." />
+    <meta name="keywords" content="WiggleByte, cybersecurity for small businesses, cybersecurity for medium-sized businesses" />
+    <meta name="author" content="WiggleByte" />
+
+    <link rel="shortcut icon" href="IMG/FOUNDER_IMAGE.JPG" />
+    <link rel="icon" href="IMG/WIGGLE_BYTE.JPG" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #090808;
+            --secondary-bg: #222;
+            --tertiary-bg: #fff;
+            --text-color: #222;
+            --accent-color: #f00;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Source Code Pro', monospace;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .splitlayout {
+            display: flex;
+            flex: 1;
+        }
+
+        .side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .side-left {
+            background: var(--secondary-bg);
+            display: none; /* Hide by default for mobile */
+        }
+
+        .side-right {
+            background: var(--tertiary-bg);
+            justify-content: space-between;
+        }
+
+        .clock-wrap {
+            width: 70vmin;  
+            height: 70vmin; 
+            max-width: 100%; 
+            max-height: 100%; 
+            margin: auto;
+            background-color: #000; 
+            border-radius: 50%; 
+        }
+
+        .logo {
+            text-align: center; 
+            margin: 1rem 0; 
+        }
+
+        .logo img {
+            max-width: 300px;
+            height: auto; 
+            display: inline-block;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-text p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .notify-form {
+            position: relative;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            width: 102%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .notify-input-box {
+            flex: 1;
+            padding: 10px;
+            border-radius: 100px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-submit {
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-submit:hover {
+            background: #d00;
+        }
+
+        #loadingMessage {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #successMessage {
+            display: none;
+            position: relative;
+            top: -2%;
+            left: 0;
+            right: 0;
+            background-color: #90EE90;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #successMessage.show {
+            display: block;
+            opacity: 1;
+        }
+
+        #successMessage:hover {
+            opacity: 0.9;
+        }
+
+        .founder {
+            text-align: center;
+        }
+
+        .founder-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .linkedin-icon {
+            width: 60px;
+            height: 60px;
+            vertical-align: middle;
+            margin-top: 5px;
+        }
+
+        .footer {
+            background: #fff;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .contact-form {
+                flex-direction: column;
+            }
+
+            .notify-input-box, .btn-submit {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .splitlayout {
+                flex-direction: row;
+            }
+
+            .side-left {
+                display: flex; /* Show on desktop */
+            }
+
+            .side-right {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="splitlayout">
+        <div class="side side-left">
+            <div class="clock-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 506 506">
+                    <circle fill="none" stroke="#FFFFFF" stroke-width="9" cx="253" cy="253" r="247.5" />
+                    <circle fill="#FFFFFF" cx="253" cy="253" r="13" />
+                    <line id="hour" fill="none" stroke="#FFFFFF" stroke-width="9" x1="253" y1="253" x2="253" y2="123" />
+                    <line id="min" fill="none" stroke="#FFFFFF" stroke-width="7" x1="253" y1="253" x2="253" y2="73" />
+                    <line id="sec" fill="none" stroke="#FFFFFF" stroke-width="4" x1="253" y1="253" x2="253" y2="53" />
+                </svg>
+            </div>
+        </div>
+        <div class="side side-right">
+            <header class="logo">
+                <img src="IMG/WIGGLE_BYTE.JPG" alt="WiggleByte logo" />
+            </header>
+            <section class="intro-text">
+                <h2>STAY TUNED!</h2>
+                <p>GAME CHANGING CYBER SECURITY PRODUCT FOR SMBs IS COMING SOON!</p>
+            </section>
+            <section class="notify-form">
+                <form name="contactForm" id="notifyMe" class="contact-form">
+                    <input class="notify-input-box" name="email" id="email" placeholder="ENTER EMAIL TO SIGN UP" type="email" required />
+                    <button type="submit" class="btn-submit">NOTIFY ME</button>
+                </form>
+                <div id="loadingMessage" style="display: none;">SUBMITTING.....</div>
+                <div id="successMessage">
+                    <p>THANK YOU FOR SIGNING UP FOR OUR BETA! WE APPRECIATE YOUR INTEREST AND SUPPORT. YOU'LL BE AMONG THE FIRST TO KNOW WHEN WE GO LIVE. STAY TUNED!</p>
+                </div>
+            </section>
+            <section class="founders-section">
+                <p>TILL THEN MEET OUR FANTASTIC FOUNDER</p>
+                <div class="founder-wrap">
+                    <div class="founder">
+                        <img src="IMG/FOUNDER_IMAGE.JPG" alt="SAJAL GUPTA" class="founder-pic" />
+                        <p>SAJAL GUPTA</p>
+                        <a href="https://www.linkedin.com/in/sajalgupta2812/" target="_blank" rel="noopener noreferrer">
+                            <img src="IMG/LINKEDIN_ICON.JPG" alt="LinkedIn" class="linkedin-icon" />
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <p>COPYRIGHT © 2024, WIGGLEBYTE, ALL RIGHTS RESERVED.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('notifyMe');
+    const loadingMessage = document.getElementById('loadingMessage');
+    const successMessage = document.getElementById('successMessage');
+    const clockWrap = document.querySelector('.clock-wrap');
+
+    const colors = ['#ff6347', '#3cb371', '#1e90ff', '#ff69b4', '#f0e68c']; // Array of colors
+    let colorIndex = 0;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        loadingMessage.style.display = 'block';
+        successMessage.classList.remove('show');
+
+        // Simulate form submission (replace with actual submission logic)
+        setTimeout(() => {
+            loadingMessage.style.display = 'none';
+            successMessage.classList.add('show');
+            form.style.display = 'none'; // Hide the form
+            form.reset();
+
+            // Hide the success message after 3 seconds and show the form again
+            setTimeout(() => {
+                successMessage.classList.remove('show'); // Hide success message
+                form.style.display = 'flex'; // Show the form again
+            }, 3000); // 3000ms = 3 seconds
+        }, 1500); // Simulate submission time
+    });
+
+    function updateClock() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const minutes = now.getMinutes();
+        const hours = now.getHours() % 12;
+
+        const secAngle = seconds * 6;
+        const minAngle = (minutes * 6) + (seconds * 0.1);
+        const hourAngle = (hours * 30) + (minutes * 0.5);
+
+        document.getElementById("sec").setAttribute("transform", `rotate(${secAngle}, 253, 253)`);
+        document.getElementById("min").setAttribute("transform", `rotate(${minAngle}, 253, 253)`);
+        document.getElementById("hour").setAttribute("transform", `rotate(${hourAngle}, 253, 253)`);
+
+        // Update clock background color every second
+        clockWrap.style.backgroundColor = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length; // Cycle through colors
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+});
+
+
+    </script>
+</body>
+</html>
+
